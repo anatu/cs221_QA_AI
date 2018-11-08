@@ -6,21 +6,9 @@ import numpy as np
 class Preprocessor():
     # Pass in the path to the data being read
     def __init__(self):
-        self.EMBED_HIDDEN_SIZE = 50
-        self.SENT_HIDDEN_SIZE = 100
-        self.QUERY_HIDDEN_SIZE = 100
-        self.BATCH_SIZE = 32
-        self.EPOCHS = 5
         self.GLOVE_PATH = "C:/users/Anand\ Natu/Desktop"
         self.EMBEDDING_DIM = 100
-        print("Preprocessor + model dimensions and parameters initialized")
-        print('Embedding Hidden Size = {}'.format(self.EMBED_HIDDEN_SIZE))
-        print('Sentence Hidden Size = {}'.format(self.SENT_HIDDEN_SIZE))
-        print('Batch Size = {}'.format(self.BATCH_SIZE))
-        print('# of Training Epochs = {}'.format(self.EPOCHS))
-
-
-
+        print("Preprocessor loaded with glove path {} and embedding dimension {}".format(self.GLOVE_PATH, self.EMBEDDING_DIM))
         
 
     def vectorize_stories(self, data, word_idx, story_maxlen, query_maxlen):
@@ -75,6 +63,7 @@ class Preprocessor():
         content = [re.split(r'\t+', x) for x in content]
         questions = []
 
+        # Load questions and split into train / test
         for line in content[1:]:
             if len(line) > 5:
                 article = corpus[line[5]]
@@ -95,23 +84,29 @@ class Preprocessor():
                     if(ans[0].lower() == 'null'):
                         y = ['null']                        
                 questions.append((article, q, y))
-        
         np.random.shuffle(questions)
         train, test = questions[:1020], questions[1020:]
         
-        self.vocab = set()
+        # Construct the vocabulary
+        vocab = set()
         for story, q, answer in train + test:
             words = story + q
-            self.vocab |= set(words)
-        self.vocab = sorted(self.vocab)
+            vocab |= set(words)
+        vocab = sorted(vocab)
 
-        self.word_idx = dict((c, i + 1) for i, c in enumerate(self.vocab))
-        vocab_size = len(self.vocab) + 1
-        story_maxlen = max(map(len, (x for x, _, _ in train + test)))
-        query_maxlen = max(map(len, (x for _, x, _ in train + test)))
+        # Store data fields for creating layers
+        # Lookup table for vocab
+        self.word_idx = dict((c, i + 1) for i, c in enumerate(vocab))
+        # Total size of vocab
+        self.vocab_size = len(vocab) + 1
+        # Max length of story (corpus)
+        self.story_maxlen = max(map(len, (x for x, _, _ in train + test)))
+        # Max length of query
+        self.query_maxlen = max(map(len, (x for _, x, _ in train + test)))
 
-        x, xq, y = self.vectorize_stories(train, self.word_idx, story_maxlen, query_maxlen)
-        tx, txq, ty = self.vectorize_stories(test, self.word_idx, story_maxlen, query_maxlen)
+        # Create vectorized data
+        x, xq, y = self.vectorize_stories(train, self.word_idx, self.story_maxlen, self.query_maxlen)
+        tx, txq, ty = self.vectorize_stories(test, self.word_idx, self.story_maxlen, self.query_maxlen)
 
         return x, tx, xq, txq, y, ty
 
