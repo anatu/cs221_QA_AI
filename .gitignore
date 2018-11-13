@@ -99,6 +99,7 @@ venv.bak/
 
 # mkdocs documentation
 /site
+/Embeddings
 
 # mypy
 .mypy_cache/
