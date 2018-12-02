@@ -1,0 +1,60 @@
+QA1 Results:
+Test Accuracy = 0.989 Test Loss = 0.1569
+
+QA2 Results:
+Test Accuracy = 0.357 Test Loss = 1.5446
+
+QA3 Results:
+Test Accuracy = 0.189 Test Loss = 1.6479
+
+QA4 Results:
+Test Accuracy = 0.673 Test Loss = 0.658
+
+QA5 Results:
+Test Accuracy = 0.819 Test Loss = 0.4509
+
+QA6 Results:
+Test Accuracy = 0.497 Test Loss = 0.6945
+
+QA7 Results:
+Test Accuracy = 0.8 Test Loss = 0.5651
+
+QA8 Results:
+Test Accuracy = 0.863 Test Loss = 0.5956
+
+QA9 Results:
+Test Accuracy = 0.9 Test Loss = 0.3626
+
+QA10 Results:
+Test Accuracy = 0.815 Test Loss = 0.5429
+
+QA11 Results:
+Test Accuracy = 0.2 Test Loss = 1.7473
+
+QA12 Results:
+Test Accuracy = 0.993 Test Loss = 0.1536
+
+QA13 Results:
+Test Accuracy = 0.944 Test Loss = 0.3085
+
+QA14 Results:
+Test Accuracy = 0.624 Test Loss = 0.9786
+
+QA15 Results:
+Test Accuracy = 0.702 Test Loss = 0.8093
+
+QA16 Results:
+Test Accuracy = 0.466 Test Loss = 1.1413
+
+QA17 Results:
+Test Accuracy = 0.48 Test Loss = 0.7028
+
+QA18 Results:
+Test Accuracy = 0.47 Test Loss = 0.6967
+
+QA19 Results:
+Test Accuracy = 0.14 Test Loss = 2.4205
+
+QA20 Results:
+Test Accuracy = 1.0 Test Loss = 0.051
+
