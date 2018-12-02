@@ -1,0 +1,30 @@
+QA1 Results:
+Test Accuracy = 0.422 Test Loss = 3.0298
+
+QA2 Results:
+Test Accuracy = 0.325 Test Loss = 5.1509
+
+QA3 Results:
+Test Accuracy = 0.214 Test Loss = 1.8766
+
+QA4 Results:
+Test Accuracy = 0.786 Test Loss = 0.3795
+
+QA5 Results:
+Test Accuracy = 0.794 Test Loss = 1.1185
+
+QA6 Results:
+Test Accuracy = 0.736 Test Loss = 1.3744
+
+QA7 Results:
+Test Accuracy = 0.76 Test Loss = 1.3315
+
+QA8 Results:
+Test Accuracy = 0.724 Test Loss = 1.6655
+
+QA9 Results:
+Test Accuracy = 0.706 Test Loss = 1.5654
+
+QA10 Results:
+Test Accuracy = 0.622 Test Loss = 2.0753
+
